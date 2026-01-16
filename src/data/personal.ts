@@ -1,0 +1,26 @@
+export const personalInfo = {
+  name: "Murari Thakur",
+  role: "Full Stack Developer",
+  tagline: "MERN | Laravel",
+  email: "murarithakur32@gmail.com",
+  phone: "+91 8013360851",
+  linkedin: "https://www.linkedin.com/in/murari-thakur-6342b8223",
+  github: "https://github.com/MurariThakur",
+  location: "India",
+  bio: "Passionate Full Stack Developer with expertise in MERN stack and Laravel. I build scalable, user-friendly web applications that solve real-world problems. With a strong foundation in both frontend and backend technologies, I deliver end-to-end solutions that drive business growth.",
+  skills: [
+    "React",
+    "Node.js",
+    "Laravel",
+    "MongoDB",
+    "MySQL",
+    "TypeScript",
+    "PHP",
+    "REST APIs",
+    "Git",
+    "Docker",
+    "AWS",
+    "Tailwind CSS"
+  ],
+  resumeUrl: "#"
+};
