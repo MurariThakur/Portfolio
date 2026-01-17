@@ -44,7 +44,7 @@ export const Navbar = () => {
             <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
               <Code2 className="w-5 h-5 text-primary" />
             </div>
-            <span className="text-xl font-bold gradient-text hidden sm:block">
+            <span className="text-2xl font-bold gradient-text hidden sm:block">
               MT
             </span>
           </Link>
@@ -55,7 +55,7 @@ export const Navbar = () => {
               <Link
                 key={link.path}
                 to={link.path}
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+                className={`px-4 py-2 rounded-lg text-base font-medium transition-all duration-200 ${
                   location.pathname === link.path
                     ? "text-primary bg-primary/10"
                     : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
@@ -107,7 +107,7 @@ export const Navbar = () => {
                 >
                   <Link
                     to={link.path}
-                    className={`block px-4 py-3 rounded-lg text-sm font-medium transition-all ${
+                    className={`block px-4 py-3 rounded-lg text-base font-medium transition-all ${
                       location.pathname === link.path
                         ? "text-primary bg-primary/10"
                         : "text-muted-foreground hover:text-foreground hover:bg-muted/50"

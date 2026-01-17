@@ -129,7 +129,7 @@ const Index = () => {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="hidden lg:block relative"
+              className="relative mt-8 lg:mt-0"
             >
               <div className="relative">
                 {/* Main Image */}
@@ -137,17 +137,17 @@ const Index = () => {
                   <img
                     src={heroCodingImg}
                     alt="Developer workspace with code"
-                    className="w-full h-[450px] object-cover"
+                    className="w-full h-[300px] lg:h-[450px] object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
                 </div>
                 
-                {/* Floating Small Image */}
+                {/* Floating Small Image - Desktop Only */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.6 }}
-                  className="absolute -bottom-8 -left-8 z-20 w-40 h-40 rounded-xl overflow-hidden shadow-xl shadow-secondary/20 border-4 border-background"
+                  className="hidden lg:block absolute -bottom-8 -left-8 z-20 w-40 h-40 rounded-xl overflow-hidden shadow-xl shadow-secondary/20 border-4 border-background"
                 >
                   <img
                     src={laptopCodeImg}
@@ -172,7 +172,7 @@ const Index = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1, duration: 0.5 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2"
+          className="absolute bottom-1 left-1/2 -translate-x-1/2"
         >
           <div className="w-6 h-10 rounded-full border-2 border-muted-foreground/30 flex items-start justify-center p-2">
             <motion.div
@@ -190,10 +190,10 @@ const Index = () => {
         <div className="container mx-auto px-4 md:px-6 relative z-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
-              { value: "2+", label: "Years Experience" },
+              { value: "3+", label: "Years Experience" },
               { value: "10+", label: "Projects Completed" },
-              { value: "5+", label: "Technologies" },
-              { value: "100%", label: "Client Satisfaction" },
+              { value: "8+", label: "Technologies" },
+              { value: "300+", label: "Commits" },
             ].map((stat, index) => (
               <motion.div
                 key={stat.label}
@@ -207,6 +207,56 @@ const Index = () => {
                   {stat.value}
                 </div>
                 <div className="text-sm text-muted-foreground">{stat.label}</div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* What I Build */}
+      <section className="py-20 relative">
+        <div className="container mx-auto px-4 md:px-6 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">What I Build</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              I specialize in creating robust, scalable applications across the full stack
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                title: "Web Applications",
+                description: "Full-stack web apps with modern frameworks and responsive design",
+                icon: "🌐"
+              },
+              {
+                title: "REST APIs",
+                description: "Scalable backend services with proper authentication and documentation",
+                icon: "🔗"
+              },
+              {
+                title: "Database Systems",
+                description: "Efficient database design and optimization for performance",
+                icon: "🗄️"
+              }
+            ].map((item, index) => (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="glass-card rounded-xl p-6 hover-lift"
+              >
+                <div className="text-4xl mb-4">{item.icon}</div>
+                <h3 className="text-xl font-semibold mb-3">{item.title}</h3>
+                <p className="text-muted-foreground">{item.description}</p>
               </motion.div>
             ))}
           </div>

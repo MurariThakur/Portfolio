@@ -5,13 +5,13 @@ const techIcons = [
   { name: "Node.js", color: "#339933" },
   { name: "Laravel", color: "#FF2D20" },
   { name: "MongoDB", color: "#47A248" },
-  { name: "TypeScript", color: "#3178C6" },
+  { name: "JavaScript", color: "#3178C6" },
   { name: "MySQL", color: "#4479A1" },
 ];
 
 export const TechIcons = () => {
   return (
-    <div className="flex flex-wrap justify-center gap-4 mt-8">
+    <div className="flex flex-wrap justify-center gap-4 mt-8 mb-20 md:mb-20">
       {techIcons.map((tech, index) => (
         <motion.div
           key={tech.name}
