@@ -1,9 +1,17 @@
 import { Link } from "react-router-dom";
 import { Github, Linkedin, Mail, Heart, Code2 } from "lucide-react";
+import { WhatsAppIcon } from "@/components/icons/WhatsAppIcon";
 import { personalInfo } from "@/data/personal";
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
+
+  const handleWhatsAppClick = () => {
+    const message = "Hi Murari! I found your portfolio and would like to connect.";
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/${personalInfo.phone.replace(/\D/g, "")}?text=${encodedMessage}`;
+    window.open(whatsappUrl, "_blank");
+  };
 
   return (
     <footer className="border-t border-border bg-card/50">
@@ -72,6 +80,13 @@ export const Footer = () => {
               >
                 <Mail className="w-5 h-5" />
               </a>
+              <button
+                onClick={handleWhatsAppClick}
+                className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center hover:bg-green-500/20 hover:text-green-500 transition-all"
+                aria-label="WhatsApp"
+              >
+                <WhatsAppIcon className="w-5 h-5" />
+              </button>
             </div>
           </div>
         </div>
