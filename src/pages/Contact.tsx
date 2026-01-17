@@ -1,7 +1,5 @@
-import { useState } from "react";
 import { motion } from "framer-motion";
 import {
-  Send,
   Mail,
   MapPin,
   Phone,
@@ -11,39 +9,14 @@ import {
   MessageCircle,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { Layout } from "@/components/layout/Layout";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { personalInfo } from "@/data/personal";
-import { toast } from "@/hooks/use-toast";
+import { WhatsAppIcon } from "@/components/icons/WhatsAppIcon";
+import contactBanner from "@/assets/contact-banner.avif";
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-  const [whatsappMessage, setWhatsappMessage] = useState(
-    "Hi Murari! I found your portfolio and would like to connect."
-  );
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-
-    toast({
-      title: "Message sent!",
-      description: "Thank you for reaching out. I'll get back to you soon.",
-    });
-
-    setFormData({ name: "", email: "", message: "" });
-    setIsSubmitting(false);
-  };
+  const whatsappMessage = "Hi Murari! I found your portfolio and would like to connect.";
 
   const handleWhatsAppClick = () => {
     const encodedMessage = encodeURIComponent(whatsappMessage);
@@ -53,229 +26,180 @@ const Contact = () => {
 
   return (
     <Layout>
+      {/* Banner Section */}
+      <section className="relative h-64 md:h-80 overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src={contactBanner}
+            alt="Contact and communication"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/80 to-background" />
+        </div>
+        <div className="absolute inset-0 flex items-center justify-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="text-center"
+          >
+            <h1 className="text-4xl md:text-5xl font-bold gradient-text mb-2">
+              Get in Touch
+            </h1>
+            <p className="text-muted-foreground max-w-xl mx-auto px-4">
+              Let's collaborate and create something amazing together.
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
       <section className="py-20 min-h-screen">
         <div className="container mx-auto px-4 md:px-6">
-          <SectionHeader
-            title="Get in Touch"
-            subtitle="Have a project in mind or want to discuss opportunities? I'd love to hear from you."
-          />
-
           <div className="max-w-6xl mx-auto">
-            <div className="grid lg:grid-cols-2 gap-12">
-              {/* Contact Form */}
+            <div className="grid lg:grid-cols-2 gap-16 items-start">
+              {/* Left Side - Contact Info */}
               <motion.div
                 initial={{ opacity: 0, x: -30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5 }}
-                className="glass-card rounded-2xl p-6 md:p-8"
+                className="space-y-8"
               >
-                <h3 className="text-2xl font-bold mb-6">Send a Message</h3>
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div>
-                    <label
-                      htmlFor="name"
-                      className="block text-sm font-medium mb-2"
-                    >
-                      Your Name
-                    </label>
-                    <Input
-                      id="name"
-                      type="text"
-                      placeholder="John Doe"
-                      value={formData.name}
-                      onChange={(e) =>
-                        setFormData({ ...formData, name: e.target.value })
-                      }
-                      required
-                      className="bg-muted/50 border-border focus:border-primary"
-                    />
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="email"
-                      className="block text-sm font-medium mb-2"
-                    >
-                      Email Address
-                    </label>
-                    <Input
-                      id="email"
-                      type="email"
-                      placeholder="john@example.com"
-                      value={formData.email}
-                      onChange={(e) =>
-                        setFormData({ ...formData, email: e.target.value })
-                      }
-                      required
-                      className="bg-muted/50 border-border focus:border-primary"
-                    />
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="message"
-                      className="block text-sm font-medium mb-2"
-                    >
-                      Message
-                    </label>
-                    <Textarea
-                      id="message"
-                      placeholder="Tell me about your project..."
-                      value={formData.message}
-                      onChange={(e) =>
-                        setFormData({ ...formData, message: e.target.value })
-                      }
-                      required
-                      rows={5}
-                      className="bg-muted/50 border-border focus:border-primary resize-none"
-                    />
-                  </div>
-                  <Button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full bg-primary hover:bg-primary/90 shadow-lg shadow-primary/25"
+                <div>
+                  <h2 className="text-3xl font-bold mb-4">Let's Connect</h2>
+                  <p className="text-muted-foreground text-lg">
+                    Ready to bring your ideas to life? I'm here to help you build amazing digital experiences.
+                  </p>
+                </div>
+
+                {/* Contact Methods */}
+                <div className="space-y-6">
+                  <motion.a
+                    href={`mailto:${personalInfo.email}`}
+                    whileHover={{ scale: 1.02 }}
+                    className="group flex items-center gap-4 p-6 glass-card rounded-2xl hover-lift"
                   >
-                    {isSubmitting ? (
-                      "Sending..."
-                    ) : (
-                      <>
-                        <Send className="mr-2 w-4 h-4" />
-                        Send Message
-                      </>
-                    )}
-                  </Button>
-                </form>
+                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center group-hover:scale-110 transition-transform">
+                      <Mail className="w-7 h-7 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-lg mb-1">Email Me</h3>
+                      <p className="text-muted-foreground">{personalInfo.email}</p>
+                      <p className="text-sm text-primary mt-1">Click to send email →</p>
+                    </div>
+                  </motion.a>
+
+                  <motion.button
+                    onClick={handleWhatsAppClick}
+                    whileHover={{ scale: 1.02 }}
+                    className="group w-full flex items-center gap-4 p-6 glass-card rounded-2xl hover-lift text-left"
+                  >
+                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-green-500 to-green-600 flex items-center justify-center group-hover:scale-110 transition-transform">
+                      <WhatsAppIcon className="w-7 h-7 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-lg mb-1">WhatsApp</h3>
+                      <p className="text-muted-foreground">{personalInfo.phone}</p>
+                      <p className="text-sm text-green-600 mt-1">Quick chat on WhatsApp →</p>
+                    </div>
+                  </motion.button>
+
+                  <motion.div
+                    whileHover={{ scale: 1.02 }}
+                    className="group flex items-center gap-4 p-6 glass-card rounded-2xl"
+                  >
+                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
+                      <MapPin className="w-7 h-7 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-lg mb-1">Location</h3>
+                      <p className="text-muted-foreground">{personalInfo.location}</p>
+                      <p className="text-sm text-muted-foreground mt-1">Available for remote work</p>
+                    </div>
+                  </motion.div>
+                </div>
               </motion.div>
 
-              {/* Contact Info & Map */}
+              {/* Right Side - Social & Actions */}
               <motion.div
                 initial={{ opacity: 0, x: 30 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5 }}
-                className="space-y-6"
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="space-y-8"
               >
-                {/* Contact Info Cards */}
-                <div className="grid gap-4">
-                  <a
-                    href={`mailto:${personalInfo.email}`}
-                    className="glass-card rounded-xl p-4 flex items-center gap-4 hover-lift"
-                  >
-                    <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
-                      <Mail className="w-5 h-5 text-primary" />
-                    </div>
-                    <div>
-                      <p className="text-sm text-muted-foreground">Email</p>
-                      <p className="font-medium">{personalInfo.email}</p>
-                    </div>
-                  </a>
-
-                  <div className="glass-card rounded-xl p-4 flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
-                      <Phone className="w-5 h-5 text-primary" />
-                    </div>
-                    <div>
-                      <p className="text-sm text-muted-foreground">Phone</p>
-                      <p className="font-medium">{personalInfo.phone}</p>
-                    </div>
-                  </div>
-
-                  <a
-                    href="https://maps.google.com/?q=India"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="glass-card rounded-xl p-4 flex items-center gap-4 hover-lift"
-                  >
-                    <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
-                      <MapPin className="w-5 h-5 text-primary" />
-                    </div>
-                    <div>
-                      <p className="text-sm text-muted-foreground">Location</p>
-                      <p className="font-medium">{personalInfo.location}</p>
-                    </div>
-                  </a>
-                </div>
-
-                {/* WhatsApp Section */}
-                <div className="glass-card rounded-xl p-6">
-                  <h4 className="font-semibold mb-4 flex items-center gap-2">
-                    <MessageCircle className="w-5 h-5 text-green-500" />
-                    Quick Connect via WhatsApp
-                  </h4>
-                  <Textarea
-                    value={whatsappMessage}
-                    onChange={(e) => setWhatsappMessage(e.target.value)}
-                    placeholder="Edit your message..."
-                    rows={3}
-                    className="bg-muted/50 border-border focus:border-primary resize-none mb-4"
-                  />
-                  <Button
-                    onClick={handleWhatsAppClick}
-                    className="w-full bg-green-600 hover:bg-green-700 text-white"
-                  >
-                    <MessageCircle className="mr-2 w-4 h-4" />
-                    Send on WhatsApp
-                  </Button>
-                </div>
-
                 {/* Social Links */}
-                <div className="glass-card rounded-xl p-6">
-                  <h4 className="font-semibold mb-4">Connect on Social</h4>
-                  <div className="flex gap-4">
+                <div className="glass-card rounded-2xl p-8">
+                  <h3 className="text-2xl font-bold mb-6">Follow Me</h3>
+                  <div className="space-y-4">
                     <a
                       href={personalInfo.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1 flex items-center justify-center gap-2 py-3 rounded-lg bg-muted hover:bg-primary/20 hover:text-primary transition-all"
+                      className="group flex items-center gap-4 p-4 rounded-xl hover:bg-muted/50 transition-all"
                     >
-                      <Github className="w-5 h-5" />
-                      <span className="font-medium">GitHub</span>
+                      <div className="w-12 h-12 rounded-xl bg-gray-900 flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <Github className="w-6 h-6 text-white" />
+                      </div>
+                      <div>
+                        <p className="font-semibold">GitHub</p>
+                        <p className="text-sm text-muted-foreground">Check out my repositories</p>
+                      </div>
                     </a>
                     <a
                       href={personalInfo.linkedin}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1 flex items-center justify-center gap-2 py-3 rounded-lg bg-muted hover:bg-primary/20 hover:text-primary transition-all"
+                      className="group flex items-center gap-4 p-4 rounded-xl hover:bg-muted/50 transition-all"
                     >
-                      <Linkedin className="w-5 h-5" />
-                      <span className="font-medium">LinkedIn</span>
+                      <div className="w-12 h-12 rounded-xl bg-blue-600 flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <Linkedin className="w-6 h-6 text-white" />
+                      </div>
+                      <div>
+                        <p className="font-semibold">LinkedIn</p>
+                        <p className="text-sm text-muted-foreground">Professional network</p>
+                      </div>
                     </a>
                   </div>
                 </div>
 
-                {/* Download CV */}
-                <Button
-                  asChild
-                  variant="outline"
-                  className="w-full h-14 text-lg border-primary/50 hover:bg-primary/10"
-                >
-                  <a href={personalInfo.resumeUrl} download>
-                    <Download className="mr-2 w-5 h-5" />
-                    Download Resume
-                  </a>
-                </Button>
-
-                {/* Map */}
-                <div className="glass-card rounded-xl overflow-hidden h-48">
-                  <a
-                    href="https://maps.google.com/?q=India"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block w-full h-full relative group"
+                {/* Download Resume */}
+                <div className="glass-card rounded-2xl p-8">
+                  <h3 className="text-2xl font-bold mb-4">Resume</h3>
+                  <p className="text-muted-foreground mb-6">
+                    Download my resume to learn more about my experience and skills.
+                  </p>
+                  <Button
+                    asChild
+                    size="lg"
+                    className="w-full bg-primary hover:bg-primary/90 shadow-lg shadow-primary/25"
                   >
-                    <iframe
-                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3684.0015567619967!2d88.34!3d22.57!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjLCsDM0JzEyLjAiTiA4OMKwMjAnMjQuMCJF!5e0!3m2!1sen!2sin!4v1234567890"
-                      width="100%"
-                      height="100%"
-                      style={{ border: 0 }}
-                      allowFullScreen
-                      loading="lazy"
-                      referrerPolicy="no-referrer-when-downgrade"
-                      title="Location Map"
-                    />
-                    <div className="absolute inset-0 bg-background/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                      <span className="text-sm font-medium">
-                        Open in Google Maps
-                      </span>
+                    <a href={personalInfo.resumeUrl} download>
+                      <Download className="mr-2 w-5 h-5" />
+                      Download Resume
+                    </a>
+                  </Button>
+                </div>
+
+                {/* Quick Stats */}
+                <div className="glass-card rounded-2xl p-8">
+                  <h3 className="text-2xl font-bold mb-6">Quick Stats</h3>
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="text-center p-4 rounded-xl bg-muted/30">
+                      <div className="text-2xl font-bold gradient-text">24h</div>
+                      <div className="text-sm text-muted-foreground">Response Time</div>
                     </div>
-                  </a>
+                    <div className="text-center p-4 rounded-xl bg-muted/30">
+                      <div className="text-2xl font-bold gradient-text">3+</div>
+                      <div className="text-sm text-muted-foreground">Years Experience</div>
+                    </div>
+                    <div className="text-center p-4 rounded-xl bg-muted/30">
+                      <div className="text-2xl font-bold gradient-text">10+</div>
+                      <div className="text-sm text-muted-foreground">Projects Done</div>
+                    </div>
+                    <div className="text-center p-4 rounded-xl bg-muted/30">
+                      <div className="text-2xl font-bold gradient-text">100%</div>
+                      <div className="text-sm text-muted-foreground">Remote Ready</div>
+                    </div>
+                  </div>
                 </div>
               </motion.div>
             </div>

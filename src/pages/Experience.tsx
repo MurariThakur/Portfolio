@@ -65,7 +65,7 @@ const Experience = () => {
                 </div>
                 <div className="glass-card rounded-xl p-6">
                   <div className="text-center">
-                    <div className="text-4xl font-bold gradient-text mb-2">2+</div>
+                    <div className="text-4xl font-bold gradient-text mb-2">3+</div>
                     <p className="text-muted-foreground text-sm mb-4">
                       Years of Experience
                     </p>
@@ -73,12 +73,12 @@ const Experience = () => {
                   <div className="space-y-3 text-sm">
                     <div className="flex items-center gap-2 text-muted-foreground">
                       <Briefcase className="w-4 h-4 text-primary" />
-                      <span>Full Stack Developer</span>
+                      <span>Full Stack Developer MERN | Laravel</span>
                     </div>
-                    <div className="flex items-center gap-2 text-muted-foreground">
+                    {/* <div className="flex items-center gap-2 text-muted-foreground">
                       <Building2 className="w-4 h-4 text-primary" />
                       <span>2 Companies</span>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </div>

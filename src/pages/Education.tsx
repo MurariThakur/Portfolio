@@ -98,13 +98,19 @@ const Education = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />
                 </div>
                 <div className="glass-card rounded-xl p-6 text-center">
-                  <div className="text-3xl font-bold gradient-text mb-2">B.Tech</div>
+                  <div className="text-3xl font-bold gradient-text mb-2">
+                    {education[0].degree.split(' ')[0]}
+                  </div>
                   <p className="text-muted-foreground text-sm">
-                    Information Technology
+                    {education[0].degree.split(' ').slice(1).join(' ')}
                   </p>
                   <div className="mt-4 flex items-center justify-center gap-2">
                     <Award className="w-5 h-5 text-primary" />
-                    <span className="font-semibold text-primary">CGPA: 8.82</span>
+                    <span className="font-semibold text-primary">
+                      {education[0].scoreType === "CGPA"
+                        ? `CGPA: ${education[0].score}`
+                        : `${education[0].score}%`}
+                    </span>
                   </div>
                 </div>
               </div>
@@ -134,14 +140,12 @@ const Education = () => {
                 "MySQL",
                 "PostgreSQL",
                 "REST APIs",
-                "GraphQL",
                 "Git",
                 "Docker",
                 "AWS",
                 "Tailwind CSS",
                 "Bootstrap",
                 "WordPress",
-                "Redis",
               ].map((skill, index) => (
                 <motion.span
                   key={skill}

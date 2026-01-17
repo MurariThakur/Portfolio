@@ -81,9 +81,6 @@ export const Footer = () => {
           <p className="text-sm text-muted-foreground">
             © {currentYear} {personalInfo.name}. All rights reserved.
           </p>
-          <p className="text-sm text-muted-foreground flex items-center gap-1">
-            Made with <Heart className="w-4 h-4 text-primary" /> using React
-          </p>
         </div>
       </div>
     </footer>

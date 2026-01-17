@@ -35,6 +35,18 @@ export const experiences: Experience[] = [
     type: "work"
   },
   {
+    id: "techno-exponent",
+    title: "Trainee Software Developer",
+    company: "Techno Exponent (T-Web)",
+    duration: "Oct 2022 – Jun 2023",
+    description: "Worked as a trainee software developer on various web development projects. Gained experience in property listing websites and dating platforms with administrative dashboards.",
+    projects: [
+      "Kenzie-Real Estate – Property listing website with admin dashboard for content management, blog, services, contact and about pages",
+      "Modern Dating – Dating platform with user registration, profile creation, and chatbot integration for personalized matchmaking"
+    ],
+    type: "work"
+  },
+  {
     id: "the-hooman",
     title: "Frontend Developer Intern",
     company: "THE Hooman",

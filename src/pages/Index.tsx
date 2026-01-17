@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight, Download, Github, Linkedin } from "lucide-react";
+import { WhatsAppIcon } from "@/components/icons/WhatsAppIcon";
 import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout/Layout";
 import { TechIcons } from "@/components/home/TechIcons";
@@ -9,6 +10,12 @@ import heroCodingImg from "@/assets/hero-coding.jpg";
 import laptopCodeImg from "@/assets/laptop-code.jpg";
 
 const Index = () => {
+  const handleWhatsAppClick = () => {
+    const message = "Hi Murari! I found your portfolio and would like to connect.";
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/${personalInfo.phone.replace(/\D/g, "")}?text=${encodedMessage}`;
+    window.open(whatsappUrl, "_blank");
+  };
   return (
     <Layout>
       {/* Hero Section */}
@@ -121,6 +128,13 @@ const Index = () => {
                 >
                   <Linkedin className="w-5 h-5" />
                 </a>
+                <button
+                  onClick={handleWhatsAppClick}
+                  className="w-12 h-12 rounded-full glass-card flex items-center justify-center hover:bg-green-500/20 hover:text-green-500 transition-all hover-lift"
+                  aria-label="WhatsApp Contact"
+                >
+                  <WhatsAppIcon className="w-5 h-5" />
+                </button>
               </motion.div>
             </div>
 
