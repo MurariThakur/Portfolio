@@ -17,7 +17,7 @@ export const projects: Project[] = [
     id: "omnicontent-studio",
     title: "OmniContent Studio",
     description: "Comprehensive AI-powered content creation and management platform with multi-platform publishing",
-    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80",
+    image: "/wonatai.jpg",
     techStack: ["Laravel 12", "React 18", "TypeScript", "PostgreSQL", "OpenAI GPT-4", "Grok", "Claude", "Gemini", "Stripe", "JWT", "TailwindCSS", "Docker"],
     features: [
       "Multi-AI Chat System with 6+ providers",
@@ -36,7 +36,7 @@ export const projects: Project[] = [
     id: "pmg-play",
     title: "PMG Play Admin Panel",
     description: "Comprehensive admin panel with robust user management",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
+    image: "/png-play.jpg",
     techStack: ["Laravel", "Sanctum", "MySQL", "RESTful APIs", "Bootstrap"],
     features: [
       "Backend admin panel with user management",
@@ -52,7 +52,7 @@ export const projects: Project[] = [
     id: "simplisell-pro",
     title: "Simplisell.in E-commerce",
     description: "Laravel 10 based e-commerce platform enabling users to create and manage online stores",
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80",
+    image: "/simplisell.jpg",
     techStack: ["Laravel 10", "MySQL", "Bootstrap", "Payment Gateways"],
     features: [
       "Complete e-commerce platform",
@@ -71,7 +71,7 @@ export const projects: Project[] = [
     id: "movie-booking",
     title: "Movie Booking System",
     description: "Comprehensive movie booking platform with real-time seat selection, secure payment processing, and admin management capabilities",
-    image: "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?w=800&q=80",
+    image: "/movie.jpg",
     techStack: ["React 19.2.0", "Vite", "Node.js", "Express.js", "MongoDB", "Mongoose", "TailwindCSS", "Stripe", "Clerk", "TMDB API", "Inngest", "Nodemailer"],
     liveUrl: "https://moviebookings-topaz.vercel.app",
     githubUrl: "https://github.com/MurariThakur/movie-booking",
@@ -92,7 +92,7 @@ export const projects: Project[] = [
     id: "ecommerce-platform",
     title: "Laravel E-Commerce Platform",
     description: "Enterprise-level e-commerce platform with complete admin control system, dynamic content management, and multi-payment gateway integration",
-    image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&q=80",
+    image: "/ecommerce.jpg",
     techStack: ["Laravel 12", "PHP 8.2+", "MySQL 8.0", "Bootstrap 5", "Blade", "jQuery", "Vite", "PayPal SDK", "Stripe PHP SDK", "DomPDF", "Maatwebsite Excel"],
     githubUrl: "https://github.com/MurariThakur/ecommerce",
     features: [
@@ -112,7 +112,7 @@ export const projects: Project[] = [
     id: "job-portal",
     title: "CareerVibe Job Portal",
     description: "Full-stack job portal with role-based authentication, advanced search & filtering, application tracking system, and comprehensive admin dashboard",
-    image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=800&q=80",
+    image: "/jobportal.jpg",
     techStack: ["Laravel 10.x", "PHP 8.1+", "MySQL", "Bootstrap 5", "jQuery", "Blade", "Laravel Sanctum", "Trumbowyg", "Font Awesome"],
     githubUrl: "https://github.com/MurariThakur/jobportal",
     features: [
@@ -132,7 +132,7 @@ export const projects: Project[] = [
     id: "task-manager",
     title: "Task Manager Application",
     description: "Full-stack web application for efficient task management with user authentication, CRUD operations, and advanced filtering capabilities",
-    image: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&q=80",
+    image: "/task.jpg",
     techStack: ["Laravel 10.x", "PHP 8.1+", "MySQL", "Bootstrap 5", "Blade", "Font Awesome", "Tabler Icons", "Eloquent ORM"],
     githubUrl: "https://github.com/MurariThakur/task-manager",
     features: [
