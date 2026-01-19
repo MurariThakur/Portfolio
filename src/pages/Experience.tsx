@@ -7,8 +7,12 @@ import { Timeline, TimelineItem } from "@/components/ui/Timeline";
 import { experiences } from "@/data/experience";
 import experienceBanner from "@/assets/experience-banner.jpg";
 import teamWorkImg from "@/assets/team-work.jpg";
+import { useEffect } from "react";
 
 const Experience = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const workExperience = experiences.filter((exp) => exp.type === "work");
   const internshipExperience = experiences.filter(
     (exp) => exp.type === "internship"
@@ -90,7 +94,7 @@ const Experience = () => {
               <CollapsibleSection
                 title="Work Experience"
                 icon={<Briefcase className="w-5 h-5" />}
-                defaultOpen={true}
+                defaultOpen={false}
               >
                 <Timeline>
                   {workExperience.map((exp, index) => (
@@ -142,7 +146,7 @@ const Experience = () => {
               <CollapsibleSection
                 title="Internship Experience"
                 icon={<GraduationCap className="w-5 h-5" />}
-                defaultOpen={true}
+                defaultOpen={false}
               >
                 <Timeline>
                   {internshipExperience.map((exp, index) => (

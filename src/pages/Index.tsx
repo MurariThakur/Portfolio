@@ -8,8 +8,12 @@ import { TechIcons } from "@/components/home/TechIcons";
 import { personalInfo } from "@/data/personal";
 import heroCodingImg from "@/assets/hero-coding.jpg";
 import laptopCodeImg from "@/assets/laptop-code.jpg";
+import { useEffect } from "react";
 
 const Index = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const handleWhatsAppClick = () => {
     const message = "Hi Murari! I found your portfolio and would like to connect.";
     const encodedMessage = encodeURIComponent(message);

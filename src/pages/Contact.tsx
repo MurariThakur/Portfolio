@@ -14,8 +14,12 @@ import { SectionHeader } from "@/components/ui/SectionHeader";
 import { personalInfo } from "@/data/personal";
 import { WhatsAppIcon } from "@/components/icons/WhatsAppIcon";
 import contactBanner from "@/assets/contact-banner.avif";
+import { useEffect } from "react";
 
 const Contact = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const whatsappMessage = "Hi Murari! I found your portfolio and would like to connect.";
 
   const handleWhatsAppClick = () => {

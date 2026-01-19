@@ -6,8 +6,12 @@ import { Timeline, TimelineItem } from "@/components/ui/Timeline";
 import { education } from "@/data/experience";
 import educationBanner from "@/assets/education-banner.jpg";
 import graduationImg from "@/assets/graduation.jpg";
+import { useEffect } from "react";
 
 const Education = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <Layout>
       {/* Banner Section */}

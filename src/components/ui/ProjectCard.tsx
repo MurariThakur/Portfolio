@@ -31,39 +31,50 @@ export const ProjectCard = ({ project, index }: ProjectCardProps) => {
             <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent" />
             
             {/* Quick Links */}
-            <div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-              {project.liveUrl && (
-                <a
-                  href={project.liveUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={(e) => e.stopPropagation()}
-                  className="w-9 h-9 rounded-full bg-background/80 backdrop-blur flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
-                  aria-label="Live demo"
-                >
-                  <ExternalLink className="w-4 h-4" />
-                </a>
-              )}
-              {project.githubUrl && (
-                <a
-                  href={project.githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={(e) => e.stopPropagation()}
-                  className="w-9 h-9 rounded-full bg-background/80 backdrop-blur flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
-                  aria-label="GitHub repository"
-                >
-                  <Github className="w-4 h-4" />
-                </a>
-              )}
-            </div>
+            {(project.liveUrl || project.githubUrl) && (
+              <div className="absolute top-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                {project.liveUrl && (
+                  <a
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                    className="w-9 h-9 rounded-full bg-background/80 backdrop-blur flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
+                    aria-label="Live demo"
+                  >
+                    <ExternalLink className="w-4 h-4" />
+                  </a>
+                )}
+                {project.githubUrl && (
+                  <a
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                    className="w-9 h-9 rounded-full bg-background/80 backdrop-blur flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"
+                    aria-label="GitHub repository"
+                  >
+                    <Github className="w-4 h-4" />
+                  </a>
+                )}
+              </div>
+            )}
           </div>
 
           {/* Content */}
           <div className="p-6">
-            <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors">
-              {project.title}
-            </h3>
+            <div className="flex items-center justify-between mb-2">
+              <h3 className="text-xl font-bold group-hover:text-primary transition-colors">
+                {project.title}
+              </h3>
+              <span className={`px-2 py-1 text-xs font-medium rounded-full ${
+                project.type === 'professional' 
+                  ? 'bg-blue-500/10 text-blue-600 border border-blue-500/20' 
+                  : 'bg-green-500/10 text-green-600 border border-green-500/20'
+              }`}>
+                {project.type === 'professional' ? 'Professional' : 'Personal'}
+              </span>
+            </div>
             <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
               {project.description}
             </p>

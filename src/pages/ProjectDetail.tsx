@@ -10,8 +10,12 @@ import {
 import { Button } from "@/components/ui/button";
 import { Layout } from "@/components/layout/Layout";
 import { projects } from "@/data/projects";
+import { useEffect } from "react";
 
 const ProjectDetail = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const { id } = useParams<{ id: string }>();
   const project = projects.find((p) => p.id === id);
 
@@ -179,33 +183,35 @@ const ProjectDetail = () => {
                 </div>
 
                 {/* Quick Links */}
-                <div className="glass-card rounded-xl p-6">
-                  <h3 className="font-bold mb-4">Quick Links</h3>
-                  <div className="space-y-2">
-                    {project.liveUrl && (
-                      <a
-                        href={project.liveUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
-                      >
-                        <ExternalLink className="w-4 h-4" />
-                        View Live Site
-                      </a>
-                    )}
-                    {project.githubUrl && (
-                      <a
-                        href={project.githubUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
-                      >
-                        <Github className="w-4 h-4" />
-                        Source Code
-                      </a>
-                    )}
+                {(project.liveUrl || project.githubUrl) && (
+                  <div className="glass-card rounded-xl p-6">
+                    <h3 className="font-bold mb-4">Quick Links</h3>
+                    <div className="space-y-2">
+                      {project.liveUrl && (
+                        <a
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+                        >
+                          <ExternalLink className="w-4 h-4" />
+                          View Live Site
+                        </a>
+                      )}
+                      {project.githubUrl && (
+                        <a
+                          href={project.githubUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+                        >
+                          <Github className="w-4 h-4" />
+                          Source Code
+                        </a>
+                      )}
+                    </div>
                   </div>
-                </div>
+                )}
               </motion.div>
             </div>
           </div>
