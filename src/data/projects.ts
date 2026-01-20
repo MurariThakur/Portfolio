@@ -14,8 +14,8 @@ export interface Project {
 export const projects: Project[] = [
   // Professional Projects
   {
-    id: "omnicontent-studio",
-    title: "OmniContent Studio",
+    id: "wonatai studio",
+    title: "Wonati Studio",
     description: "Comprehensive AI-powered content creation and management platform with multi-platform publishing",
     image: "/wonatai.jpg",
     techStack: ["Laravel 12", "React 18", "TypeScript", "PostgreSQL", "OpenAI GPT-4", "Grok", "Claude", "Gemini", "Stripe", "JWT", "TailwindCSS", "Docker"],
@@ -32,40 +32,6 @@ export const projects: Project[] = [
     overview: "A cutting-edge AI-powered content management platform built with Laravel 12 and React/TypeScript. Features integration with 6+ AI services, multi-platform content publishing, advanced subscription management, and comprehensive security measures. Demonstrates expertise in full-stack development, AI integration, payment systems, and modern web development practices with clean architecture and extensive testing coverage.",
     type: "professional"
   },
-  {
-    id: "pmg-play",
-    title: "PMG Play Admin Panel",
-    description: "Comprehensive admin panel with robust user management",
-    image: "/png-play.jpg",
-    techStack: ["Laravel", "Sanctum", "MySQL", "RESTful APIs", "Bootstrap"],
-    features: [
-      "Backend admin panel with user management",
-      "RESTful APIs for authentication",
-      "Laravel Sanctum integration",
-      "Role-based access control",
-      "Dashboard analytics and reporting"
-    ],
-    overview: "A comprehensive admin panel designed for PMG Play platform. Built with Laravel and Sanctum for secure API authentication, featuring complete user management and role-based access control systems.",
-    type: "professional"
-  },
-  {
-    id: "simplisell-pro",
-    title: "Simplisell.in E-commerce",
-    description: "Laravel 10 based e-commerce platform enabling users to create and manage online stores",
-    image: "/simplisell.jpg",
-    techStack: ["Laravel 10", "MySQL", "Bootstrap", "Payment Gateways"],
-    features: [
-      "Complete e-commerce platform",
-      "Product catalog and inventory management",
-      "Secure payment gateway integration",
-      "Order management and tracking",
-      "Customer management dashboard",
-      "Responsive design"
-    ],
-    overview: "A professional e-commerce platform built with Laravel 10, enabling users to create and manage their online stores. Features comprehensive store management, payment processing, and customer relationship tools.",
-    type: "professional"
-  },
-  
   // Personal Projects
   {
     id: "movie-booking",
