@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink, Github, Eye } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { Project } from "@/data/projects";
 
 interface ProjectCardProps {
@@ -80,16 +81,29 @@ export const ProjectCard = ({ project, index }: ProjectCardProps) => {
             </p>
 
             {/* Tech Stack */}
-            <div className="flex flex-wrap gap-2">
-              {project.techStack.slice(0, 4).map((tech) => (
+            <div className="flex flex-wrap gap-2 mb-4">
+              {project.techStack.slice(0, 5).map((tech) => (
                 <span key={tech} className="tech-tag">
                   {tech}
                 </span>
               ))}
-              {project.techStack.length > 4 && (
-                <span className="tech-tag">+{project.techStack.length - 4}</span>
+              {project.techStack.length > 5 && (
+                <span className="tech-tag">+{project.techStack.length - 5}</span>
               )}
             </div>
+
+            {/* View Details Button */}
+            <Button
+              asChild
+              variant="outline"
+              size="sm"
+              className="w-full group-hover:bg-primary group-hover:text-primary-foreground md:hover:bg-primary md:hover:text-primary-foreground bg-primary text-primary-foreground md:bg-transparent md:text-foreground transition-colors"
+            >
+              <span className="flex items-center justify-center gap-2">
+                <Eye className="w-4 h-4" />
+                View Details
+              </span>
+            </Button>
           </div>
         </div>
       </Link>

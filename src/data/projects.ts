@@ -72,7 +72,7 @@ export const projects: Project[] = [
     title: "Movie Booking System",
     description: "Comprehensive movie booking platform with real-time seat selection, secure payment processing, and admin management capabilities",
     image: "/movie.jpg",
-    techStack: ["React 19.2.0", "Vite", "Node.js", "Express.js", "MongoDB", "Mongoose", "TailwindCSS", "Stripe", "Clerk", "TMDB API", "Inngest", "Nodemailer"],
+    techStack: ["React", "Vite", "Node.js", "Express.js", "MongoDB", "Mongoose", "TailwindCSS", "Stripe", "Clerk", "TMDB API", "Inngest", "Nodemailer"],
     liveUrl: "https://moviebookings-topaz.vercel.app",
     githubUrl: "https://github.com/MurariThakur/movie-booking",
     features: [
@@ -86,6 +86,26 @@ export const projects: Project[] = [
       "MongoDB with complex relationships"
     ],
     overview: "A production-ready full-stack movie booking platform showcasing advanced React/Node.js development with complex business logic. Features comprehensive payment processing, real-time seat management, background job orchestration, and admin analytics. Demonstrates expertise in modern web development, third-party integrations (Stripe, Clerk, TMDB), asynchronous programming, and scalable architecture with security best practices.",
+    type: "personal"
+  },
+  {
+    id: "mern-auth",
+    title: "MERN Authentication System",
+    description: "Comprehensive authentication system with modern security features, multi-authentication methods, and user management capabilities",
+    image: "/auth.jpg",
+    techStack: ["React", "Vite", "Node.js", "Express.js", "MongoDB", "Mongoose", "JWT", "Passport.js", "TailwindCSS", "Radix UI", "Nodemailer", "bcryptjs"],
+    githubUrl: "https://github.com/MurariThakur/mern-auth",
+    features: [
+      "Multi-authentication methods (Email/Password, Google OAuth 2.0)",
+      "JWT-based email verification with Handlebars templates",
+      "OTP-based password recovery with time expiration",
+      "Secure session management with access & refresh tokens",
+      "Protected routes with authentication middleware",
+      "Modern responsive UI with Tailwind CSS and Radix UI",
+      "RESTful API architecture with modular routing",
+      "Password encryption and secure storage with bcryptjs"
+    ],
+    overview: "A comprehensive full-stack authentication system built with MERN stack showcasing modern security practices and user management. Features multi-authentication methods, JWT token management, email verification, password recovery, and protected routes. Demonstrates expertise in security implementation, API development, database design, and modern React development with proper session handling and user experience design.",
     type: "personal"
   },
   {
