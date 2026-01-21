@@ -96,7 +96,7 @@ export const projects: Project[] = [
   },
   {
     id: "job-portal",
-    title: "CareerVibe Job Portal",
+    title: "Job Portal",
     description: "Full-stack job portal with role-based authentication, advanced search & filtering, application tracking system, and comprehensive admin dashboard",
     image: "/jobportal.jpg",
     techStack: ["Laravel 10.x", "PHP 8.1+", "MySQL", "Bootstrap 5", "jQuery", "Blade", "Laravel Sanctum", "Trumbowyg", "Font Awesome"],
